@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Isogrid vs. Plain Cylinder: A First Look at FEA — Zilu Zheng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-name">Zilu Zheng</span>
+        <span class="brand-meta">B.S. Aerospace Engineering · UC San Diego</span>
+      </a>
+
+      <div class="nav-wrapper">
+        <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li class="nav-dropdown">
+              <a href="../index.html#featured-projects-list" class="nav-dropdown-trigger" aria-current="page">Projects &#9662;</a>
+              <ul class="nav-dropdown-menu" aria-label="Project Pages">
+                <li><a href="../projects/libreye.html">01 · Libreye Camera Enclosure</a></li>
+                <li><a href="../projects/two-stage-rocket.html">02 · Rocket Avionics Bay</a></li>
+                <li><a href="../projects/ai-smart-fan.html">03 · AI Smart-Fan</a></li>
+                <li><a href="../projects/isogrid-analysis.html">04 · Isogrid Analysis</a></li>
+              </ul>
+            </li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact &amp; Resume</a></li>
+          </ul>
+        </nav>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">Theme: Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="case-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="../index.html#featured-projects-list">Projects</a> / <span>04 · Isogrid Analysis</span>
+        </nav>
+
+        <div class="case-lead-banner">
+          <span>Tools: Creo Parametric, Creo Simulate &nbsp;|&nbsp; Material: Ti-6Al-4V &nbsp;|&nbsp; Type: Self-directed learning project</span>
+        </div>
+
+        <h1>Isogrid vs. Plain Cylinder: A First Look at FEA</h1>
+      </div>
+    </section>
+
+    <section class="viewer-section" aria-label="Interactive 3D Isogrid Model and FEA Chart">
+      <div class="container">
+        <div class="viewer-frame">
+          <div class="viewer-badge-top">
+            Interactive 3D CAD · <code>assets/models/isogridcylinder.glb</code>
+          </div>
+          <model-viewer
+            src="../assets/models/isogridcylinder.glb"
+            poster="../assets/images/isogrid_fea_comparison.png"
+            alt="Interactive 3D CAD model of the modeled Ti-6Al-4V isogrid cylinder"
+            loading="lazy"
+            reveal="auto"
+            camera-controls
+            touch-action="pan-y"
+            auto-rotate
+            auto-rotate-delay="1500"
+            rotation-per-second="12deg"
+            environment-image="neutral"
+            shadow-intensity="0.6"
+            exposure="1.0">
+          </model-viewer>
+          <div class="viewer-hint" aria-hidden="true">
+            <span>&#8635; Drag to rotate · Scroll to zoom</span>
+          </div>
+        </div>
+        <div class="viewer-caption-bar">
+          <span>Modeled in PTC Creo Parametric (<code>isogridcylinder.glb</code>)</span>
+          <span>Orbit controls · Idle auto-rotate</span>
+        </div>
+
+        <div class="media-stack">
+          <figure class="placeholder-figure wide">
+            <img src="../assets/images/isogrid_fea_comparison.png" alt="Equal-mass comparison chart of torsional deflection and peak von Mises stress between the plain tube and isogrid cylinder" loading="lazy">
+            <figcaption>Equal-mass linear static FEA comparison (Creo Simulate, Ti-6Al-4V).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-body">
+      <div class="container">
+
+        <article class="case-block reveal">
+          <div class="media-grid-2">
+            <div>
+              <h2>Why I did this</h2>
+              <p style="margin-top: 0.45rem;">
+                I kept seeing isogrid structures on launch vehicles and wanted to understand why they’re used. I’m also learning FEA, so I modeled one and compared it with a plain cylinder (305.974 mm OD, 480.624 mm long, 10 mm wall in the baseline) to see where the isogrid actually helps.
+              </p>
+            </div>
+
+            <div>
+              <h2>What I ran</h2>
+              <p style="margin-top: 0.45rem;">
+                Each design was tested in axial tension, torsion (50 kN·m), and axial compression (500 kN). I started with an isogrid and a 10 mm tube. Then I compared at equal mass, because removing material and calling it a win isn’t a fair test.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-block reveal">
+          <h2 style="margin-bottom: 0.5rem;">Results</h2>
+          <p style="margin-bottom: 0.85rem;">
+            Before comparing designs, I checked that the plain-tube results matched hand calculations (PL/AE for tension, TL/GJ for torsion). They agreed within about 1%, so I trusted the setup.
+          </p>
+
+          <div class="data-table-wrap">
+            <table class="data-table" aria-label="Equal-mass comparison between plain tube and isogrid">
+              <thead>
+                <tr>
+                  <th scope="col">Equal-mass comparison</th>
+                  <th scope="col" class="num">Plain tube</th>
+                  <th scope="col" class="num">Isogrid</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Torsion, 12.4 kg: deflection</td>
+                  <td class="num">0.678 mm</td>
+                  <td class="num">0.781 mm</td>
+                </tr>
+                <tr>
+                  <td>Torsion, 12.4 kg: peak stress</td>
+                  <td class="num">118 MPa</td>
+                  <td class="num">155 MPa</td>
+                </tr>
+                <tr>
+                  <td>Torsion, 7.9 kg: deflection</td>
+                  <td class="num">1.09 mm</td>
+                  <td class="num">1.59 mm</td>
+                </tr>
+                <tr>
+                  <td>Torsion, 7.9 kg: peak stress</td>
+                  <td class="num">192 MPa</td>
+                  <td class="num">339 MPa</td>
+                </tr>
+                <tr>
+                  <td>Compression, about 8 kg: peak stress</td>
+                  <td class="num">160 MPa</td>
+                  <td class="num">398 MPa</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>
+            The plain tube won in every case I ran. My first guess was that I had modeled something wrong. I hadn’t.
+          </p>
+        </article>
+
+        <article class="case-block reveal">
+          <div class="case-split">
+            <div>
+              <h2 style="margin-bottom: 0.5rem;">Why the isogrid lost</h2>
+              <ul class="compact-list">
+                <li>Stiffness comes from material at large radius. Tension, torsion, and bending are best handled by a continuous wall as far from the axis as possible, which is what a plain tube is.</li>
+                <li>The ribs are inefficient. A triangular lattice carries load at roughly a third of the efficiency of solid material per unit mass. In my 2 mm skin and 8 mm rib design, about half the mass was ribs.</li>
+                <li>Geometry raises local stress. Where skin and ribs meet, the load path is offset, which creates local bending and raises the peak stress, even with fillets.</li>
+                <li>Static analysis can’t see what isogrids are for. A linear static run only checks whether the material yields. It says nothing about buckling.</li>
+              </ul>
+            </div>
+
+            <div>
+              <h2 style="margin-bottom: 0.45rem;">When an isogrid should win</h2>
+              <p style="margin-bottom: 1.15rem;">
+                Isogrids pay off for thin-walled, large-diameter shells (r/t above roughly 100) loaded in compression, bending, or external pressure. There, a plain wall would buckle at a small fraction of yield, and ribs raise bending stiffness far more than they add mass. My tube sits at r/t of about 36. Using NASA SP-8007’s knockdown factor (about 0.72 at this r/t), it would yield long before it buckles, so it isn’t in the regime where isogrids help.
+              </p>
+
+              <h2 style="margin-bottom: 0.45rem;">Did the idealized model matter?</h2>
+              <p>
+                For the strength and stiffness cases, barely. A perfect circle with no defects shifts those results by a few percent at most. Buckling is the opposite. Real cylinders fail at roughly 20-70% of the perfect-shell prediction because they are imperfection-sensitive, and stiffened shells are less sensitive. My perfect model would hide exactly the advantage the isogrid has. Fatigue and manufacturing defects would also likely hurt the thin ribs more.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="case-block reveal">
+          <h2 style="margin-bottom: 0.5rem;">What I’d do next</h2>
+          <ol class="compact-list">
+            <li>Run linear buckling on both designs at equal mass.</li>
+            <li>Repeat with a much thinner wall at the same OD, where the isogrid should start to win.</li>
+            <li>Run nonlinear buckling with an imperfection seeded from the first mode, to measure each design’s knockdown directly.</li>
+          </ol>
+
+          <div class="takeaway-banner">
+            Takeaway: I went in expecting the isogrid to be better. The data showed that an isogrid is a solution to a stability problem, and my cylinder didn’t have one. Working out why was more useful than a result that confirmed my guess.
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        Zilu Zheng · Aerospace Engineering, UC San Diego · San Diego, CA
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:zzilu7@gmail.com">zzilu7@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/ziluzheng/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects/libreye.html">Libreye</a></li>
+        <li><a href="../projects/two-stage-rocket.html">Rocket Avionics</a></li>
+        <li><a href="../projects/ai-smart-fan.html">Smart-Fan</a></li>
+        <li><a href="../projects/isogrid-analysis.html">Isogrid FEA</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="../main.js"></script>
+</body>
+</html>

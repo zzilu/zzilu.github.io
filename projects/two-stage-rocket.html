@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Two-Stage Rocket Avionics Bay — Zilu Zheng</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="../index.html" class="brand">
+        <span class="brand-name">Zilu Zheng</span>
+        <span class="brand-meta">B.S. Aerospace Engineering · UC San Diego</span>
+      </a>
+
+      <div class="nav-wrapper">
+        <button type="button" id="mobile-menu-btn" class="mobile-menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li class="nav-dropdown">
+              <a href="../index.html#featured-projects-list" class="nav-dropdown-trigger" aria-current="page">Projects &#9662;</a>
+              <ul class="nav-dropdown-menu" aria-label="Project Pages">
+                <li><a href="../projects/libreye.html">01 · Libreye Camera Enclosure</a></li>
+                <li><a href="../projects/two-stage-rocket.html">02 · Rocket Avionics Bay</a></li>
+                <li><a href="../projects/ai-smart-fan.html">03 · AI Smart-Fan</a></li>
+                <li><a href="../projects/isogrid-analysis.html">04 · Isogrid Analysis</a></li>
+              </ul>
+            </li>
+            <li><a href="../about.html">About</a></li>
+            <li><a href="../contact.html">Contact &amp; Resume</a></li>
+          </ul>
+        </nav>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-pressed="false">Theme: Light</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="case-header">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="../index.html">Home</a> / <a href="../index.html#featured-projects-list">Projects</a> / <span>02 · Rocket Avionics Bay</span>
+        </nav>
+
+        <div class="case-lead-banner">
+          <span>De Anza College Structures Lead (Jan. – May 2026) · Creo Parametric · OpenRocket (15 g Requirement)</span>
+        </div>
+
+        <h1>Two-Stage Rocket — Avionics Bay CAD</h1>
+
+        <p class="case-summary-line">
+          Led a 10-person structures subteam on a dual-L1 two-stage rocket and modeled the 3D-printed avionics bay in PTC Creo Parametric around a <code>15 g</code> OpenRocket acceleration requirement.
+        </p>
+      </div>
+    </section>
+
+    <section class="viewer-section" aria-label="Interactive 3D Avionics Bay Comparison">
+      <div class="container">
+        <div class="viewer-toolbar">
+          <div>
+            <span class="section-kicker">Interactive 3D CAD · Compare Both Versions</span>
+            <h2 style="font-size: 1.2rem;">Avionics Bay — Mk2 (New) vs. Mk1 (Old)</h2>
+          </div>
+          <div class="viewer-tabs" role="group" aria-label="Select Avionics Bay Version">
+            <button type="button" class="viewer-tab-btn is-active"
+              data-model-target="rocket-avi-viewer"
+              data-model-src="../assets/models/avibaymk2_asm.glb"
+              data-model-label="Interactive 3D CAD · <code>assets/models/avibaymk2_asm.glb</code> (Mk2 Redesigned Avionics Bay)">
+              New Avionics Bay (Mk2)
+            </button>
+            <button type="button" class="viewer-tab-btn"
+              data-model-target="rocket-avi-viewer"
+              data-model-src="../assets/models/avibaymk1_asm.glb"
+              data-model-label="Interactive 3D CAD · <code>assets/models/avibaymk1_asm.glb</code> (Mk1 Original Avionics Bay)">
+              Old Avionics Bay (Mk1)
+            </button>
+          </div>
+        </div>
+
+        <div class="viewer-frame">
+          <div class="viewer-badge-top" id="rocket-avi-viewer-badge">
+            Interactive 3D CAD · <code>assets/models/avibaymk2_asm.glb</code> (Mk2 Redesigned Avionics Bay)
+          </div>
+          <model-viewer
+            id="rocket-avi-viewer"
+            src="../assets/models/avibaymk2_asm.glb"
+            poster="../assets/images/avi_bay_exploded_wireframe.png"
+            alt="Interactive 3D CAD model of the rocket avionics bay assembly"
+            loading="lazy"
+            reveal="auto"
+            camera-controls
+            touch-action="pan-y"
+            auto-rotate
+            auto-rotate-delay="1500"
+            rotation-per-second="12deg"
+            environment-image="neutral"
+            shadow-intensity="0.6"
+            exposure="1.0">
+          </model-viewer>
+          <div class="viewer-hint" aria-hidden="true">
+            <span>&#8635; Drag to rotate · Scroll to zoom</span>
+          </div>
+        </div>
+        <div class="viewer-caption-bar">
+          <span>Use the buttons above to switch between Mk2 (<code>avibaymk2_asm</code>) and Mk1 (<code>avibaymk1_asm</code>)</span>
+          <span>Orbit controls · Idle auto-rotate</span>
+        </div>
+
+        <article class="case-block reveal" style="padding-top: 0.5rem;">
+          <span class="case-step-label">Why the Avionics Bay Was Re-Architected</span>
+          <h2 style="margin-bottom: 0.45rem;">Mk1 &rarr; Mk2 Redesign</h2>
+          <p style="margin-bottom: 1rem;">
+            New electronics were added mid-project, and miscommunication between the avionics/electronics team and the structures/design team meant the original Mk1 sled did not have enough room. I redesigned the bay into the Mk2 configuration with two parallel vertical mounts to create more surface area for the additional boards.
+          </p>
+          <div class="hero-actions">
+            <a href="../assets/docs/Operation-Rayleigh-OpenRocket.ork" download class="btn btn-secondary">Download OpenRocket File (.ork) &darr;</a>
+          </div>
+        </article>
+
+        <div class="media-stack">
+          <figure class="placeholder-figure wide">
+            <img src="../assets/images/avi_bay_exploded_wireframe.png" alt="Creo Parametric exploded wireframe of the Mk2 avionics bay assembly" loading="lazy">
+            <figcaption>Fig 1. Creo Parametric exploded wireframe (<code>Explode State: BOMB(+)</code>) of the Mk2 avionics bay.</figcaption>
+          </figure>
+
+          <figure class="placeholder-figure wide">
+            <img src="../assets/images/openrocket_flight_profile.png" alt="OpenRocket airframe schematic and simulated flight profile" loading="lazy">
+            <figcaption>Fig 2. OpenRocket airframe geometry and flight simulation (<code>13.98 g</code> peak simulated axial acceleration against the <code>15 g</code> requirement).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        Zilu Zheng · Aerospace Engineering, UC San Diego · San Diego, CA
+      </div>
+      <ul class="footer-links">
+        <li><a href="mailto:zzilu7@gmail.com">zzilu7@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/ziluzheng/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../projects/libreye.html">Libreye</a></li>
+        <li><a href="../projects/two-stage-rocket.html">Rocket Avionics</a></li>
+        <li><a href="../projects/ai-smart-fan.html">Smart-Fan</a></li>
+        <li><a href="../projects/isogrid-analysis.html">Isogrid FEA</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script src="../main.js"></script>
+</body>
+</html>
